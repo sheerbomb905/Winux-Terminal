@@ -3,4 +3,4 @@
 This current build requires;
 - Most recent version of python installed on the device
 - Most recent version of pygame installed on the device
-If these 2 are not working for your, please report it in the Issues tab.
+If these 2 are not working for you, please report it in the Issues tab.
