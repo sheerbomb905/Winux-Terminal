@@ -56,7 +56,7 @@ def run_command(cwd, cmd):
     elif command == "ls":
         try:
             items = os.listdir(cwd)
-            # Mark directory listing for color blue
+            
             return cwd, ("dirlist", "\n".join(items))
         except Exception as e:
             return cwd, ("error", f"Error listing directory: {str(e)}")
@@ -175,10 +175,6 @@ def run_command(cwd, cmd):
         if name not in ("default", "solarized", "dracula"):
             return cwd, ("error", f"Unknown theme '{name}'.")
         return cwd, ("theme", name)
-
-    ################################################################################
-    # --- Full implementation of the new commands starts here ---
-    ################################################################################
 
     elif command == "cp":
         if len(parts) < 3:
@@ -301,17 +297,17 @@ def run_command(cwd, cmd):
     elif command == "chmod":
         if len(parts) < 3:
             return cwd, ("error", "Usage: chmod <mode> <file>")
-        # Simulate on Windows
+        
         return cwd, ("warning", "chmod is not supported on Windows in this shell. No action taken.")
 
     elif command == "chown":
         if len(parts) < 3:
             return cwd, ("error", "Usage: chown <owner> <file>")
-        # Simulate on Windows
+        
         return cwd, ("warning", "chown is not supported on Windows in this shell. No action taken.")
 
     elif command == "ln":
-        # ln -s target linkname
+        
         if len(parts) < 4 or parts[1] != "-s":
             return cwd, ("error", "Usage: ln -s <target> <linkname>")
         target = parts[2]
@@ -582,3 +578,4 @@ def run_command(cwd, cmd):
             return cwd, ("error", f"Error running script {stripped_cmd}: {str(e)}")
 
     return cwd, ("error", f"Command not found: {command}")
+
