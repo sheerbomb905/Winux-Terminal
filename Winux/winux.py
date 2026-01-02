@@ -213,7 +213,7 @@ def main():
                                 if out_type == "__clear__":
                                     history = []
                                 elif out_type == "theme":
-                                    current_theme = THEMES.get(out_text, THEMES["default"])
+                                    current_theme = THEMES.get(out_text, THEMES["default"])   # bookmark ping fix
                                     history.append(("normal", f"Theme set to {out_text}"))
                                 else:
                                     for line in out_text.split("\n"):
@@ -277,3 +277,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
